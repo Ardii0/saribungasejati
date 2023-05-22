@@ -14,20 +14,20 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
-    <link href="<?php echo base_url('assets/admin-page'); ?>/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets'); ?>/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Waves Effect Css -->
-    <link href="<?php echo base_url('assets/admin-page'); ?>/plugins/node-waves/waves.css" rel="stylesheet" />
+    <link href="<?php echo base_url('assets'); ?>/plugins/node-waves/waves.css" rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="<?php echo base_url('assets/admin-page'); ?>/plugins/animate-css/animate.css" rel="stylesheet" />
+    <link href="<?php echo base_url('assets'); ?>/plugins/animate-css/animate.css" rel="stylesheet" />
 
     <!-- Custom Css -->
-    <link href="<?php echo base_url('assets/admin-page'); ?>/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets'); ?>/css/style.css" rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="<?php echo base_url('assets/admin-page'); ?>/css/themes/all-themes.css" rel="stylesheet" />
-    <link href="<?php echo base_url('assets/admin-page'); ?>/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url('assets'); ?>/css/themes/all-themes.css" rel="stylesheet" />
+    <link href="<?php echo base_url('assets'); ?>/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
     <?php echo (isset($additional_head) ? $additional_head : ''); ?>
 </head>
 
@@ -182,26 +182,26 @@
     ?>
 
     <!-- Jquery Core Js -->
-    <script src="<?php echo base_url('assets/admin-page'); ?>/plugins/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url('assets'); ?>/plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->
-    <script src="<?php echo base_url('assets/admin-page'); ?>/plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="<?php echo base_url('assets'); ?>/plugins/bootstrap/js/bootstrap.js"></script>
 
     <!-- Select Plugin Js -->
-    <script src="<?php echo base_url('assets/admin-page'); ?>/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <script src="<?php echo base_url('assets'); ?>/plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- Slimscroll Plugin Js -->
-    <script src="<?php echo base_url('assets/admin-page'); ?>/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <script src="<?php echo base_url('assets'); ?>/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
     <!-- Waves Effect Plugin Js -->
-    <script src="<?php echo base_url('assets/admin-page'); ?>/plugins/node-waves/waves.js"></script>
+    <script src="<?php echo base_url('assets'); ?>/plugins/node-waves/waves.js"></script>
 
     <!-- Custom Js -->
-    <script src="<?php echo base_url('assets/admin-page'); ?>/js/admin.js"></script>
+    <script src="<?php echo base_url('assets'); ?>/js/admin.js"></script>
     <!-- Jquery DataTable Plugin Js -->
-    <script src="<?php echo base_url('assets/admin-page')?>/plugins/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="<?php echo base_url('assets/admin-page')?>/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-    <script src="<?php echo base_url('assets/admin-page')?>/js/pages/tables/jquery-datatable.js">
+    <script src="<?php echo base_url('assets')?>/plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="<?php echo base_url('assets')?>/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="<?php echo base_url('assets')?>/js/pages/tables/jquery-datatable.js">
     </script>
     <?php echo (isset($additional_body) ? $additional_body : ''); ?>
 </body>

@@ -6,9 +6,9 @@ class Template
 {
     private $_ci;
     
-    public $_app_name = 'Minafood';
+    public $_app_name = 'Sari Bunga Sejati';
     
-    public $_app_slogan = 'Toko Oleh-Oleh Beragam Jenis Ikan';
+    public $_app_slogan = 'Toko Penjualan Aneka Madu';
 
     public $_title_separator = ' | ';
 

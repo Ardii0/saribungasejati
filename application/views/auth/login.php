@@ -9,87 +9,50 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="author" content="Muhammad Ardi Setiawan">
     <title><?php echo $title; ?></title>
-    <link rel="icon" href="<?php echo base_url('assets/WebIcon.png'); ?>" type="image/x-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-
-    <!-- Bootstrap Core Css -->
-    <link href="<?php echo base_url('assets/admin-page'); ?>/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Waves Effect Css -->
-    <link href="<?php echo base_url('assets/admin-page'); ?>/plugins/node-waves/waves.css" rel="stylesheet" />
-
-    <!-- Animation Css -->
-    <link href="<?php echo base_url('assets/admin-page'); ?>/plugins/animate-css/animate.css" rel="stylesheet" />
-
-    <!-- Custom Css -->
-    <link href="<?php echo base_url('assets/admin-page'); ?>/css/style.css" rel="stylesheet">
+    <link rel="icon" href="<?php echo base_url('assets/WebIcon.jpg'); ?>" type="image/x-icon">
+    <link rel="stylesheet" href="<?php echo base_url('assets/plugins/tailwind/post/app.css'); ?>">
 </head>
 
-<body class="login-page">
-    <div class="login-box">
-        <div class="logo">
-            <a href="javascript:void(0);"><?php echo $_app_name; ?></a>
+<body>
+    <div class="flex min-h-[100vh] flex-col justify-center px-6 py-12 lg:px-8">
+    <?php $this->load->view('alert'); ?>
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <img class="mx-auto h-10 w-auto" src="<?php echo base_url('assets/honey.png') ?>" alt="Sari Bunga Sejati Icon">
+            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Masuk ke Akun anda</h2>
         </div>
-        <div class="card">
-            <div class="body">
-                <?php echo form_open('auth/login', 'id="sign_in"'); ?>
-                <?php $this->load->view('alert'); ?>
-                <div class="msg">
-                    <h4 class="">Login</h4>
-                </div>
-                <!-- <h1>Login Sekarang</h1> -->
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class="material-icons">email</i>
-                    </span>
-                    <div class="form-line">
-                        <?php echo form_input($email, '', 'class="form-control" placeholder="Alamat Email" required autofocus'); ?>
+
+        <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
+            <?php echo form_open('auth/login', 'class="space-y-6" id="sign_in"'); ?>
+                <div>
+                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Alamat Email</label>
+                    <div class="mt-2">
+                        <?php echo form_input($email, '', 'class="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="your@email.com" type="email" autocomplete="email" required'); ?>
                     </div>
                 </div>
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <i class="material-icons">lock</i>
-                    </span>
-                    <div class="form-line">
-                        <?php echo form_input($password, '', 'class="form-control" placeholder="Kata Sandi" required'); ?>
+
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                        <div class="text-sm">
+                            <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Lupa password?</a>
+                        </div>
+                        </div>
+                        <div class="mt-2">
+                        <?php echo form_input($password, '', 'class="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="*******" required'); ?>
                     </div>
                 </div>
-                <div class="mx-2">
-                    <div class="">
-                        <?php echo form_submit('submit', 'Login', 'class="btn btn-block bg-pink waves-effect"') ?>
-                    </div>
+
+                <div>
+                    <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Masuk</button>
                 </div>
-                <div class="row m-t-15 m-b--20">
-                    <div class="col-xs-6">
-                        <a href="register">Daftar</a>
-                    </div>
-                    <div class="col-xs-6 align-right">
-                        <a href="forgot-password">Lupa Kata Sandi?</a>
-                    </div>
-                </div>
-                <?php echo form_close(); ?>
-            </div>
+            <?php echo form_close(); ?>
+
+            <p class="mt-10 text-center text-sm text-gray-500">
+                Belum Punya Akun?
+            <a href="register" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Daftar</a>
+            </p>
         </div>
     </div>
-
-    <!-- Jquery Core Js -->
-    <script src="<?php echo base_url('assets/admin-page'); ?>/plugins/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core Js -->
-    <script src="<?php echo base_url('assets/admin-page'); ?>/plugins/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Waves Effect Plugin Js -->
-    <script src="<?php echo base_url('assets/admin-page'); ?>/plugins/node-waves/waves.js"></script>
-
-    <!-- Validation Plugin Js -->
-    <script src="<?php echo base_url('assets/admin-page'); ?>/plugins/jquery-validation/jquery.validate.js"></script>
-
-    <!-- Custom Js -->
-    <script src="<?php echo base_url('assets/admin-page'); ?>/js/admin.js"></script>
-    <script src="<?php echo base_url('assets/admin-page'); ?>/js/pages/examples/sign-in.js"></script>
 </body>
 
 </html>
