@@ -1,4 +1,4 @@
-<div class="landpage container-fluid">
+<div class="container">
     <div class="h-100" style="margin: 75px 34px 0 34px;">
     <h2>Produk Kami</h2>
     <div class="row smooth-scroll">

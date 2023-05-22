@@ -8,70 +8,18 @@
   <meta name="keywords" content="<?php echo $_meta_keyword; ?>">
   <meta name="author" content="Muhammad Ardi Setiawan">
   <title><?php echo $title; ?></title>
-  <!-- Favicon-->
-  <link rel="icon" href="<?php echo base_url('assets/webIcon.png'); ?>" type="image/x-icon">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-  <!-- Bootstrap core CSS -->
-  <link href="<?php echo base_url('assets/landing-page'); ?>/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="<?php echo base_url('assets/landing-page'); ?>/css/mdb.min.css" rel="stylesheet">
-  <link href="<?php echo base_url('assets/admin-page/css/font-awesome.min.css'); ?>" rel="stylesheet" />
+  <link rel="icon" href="<?php echo base_url('assets/WebIcon.jpg'); ?>" type="image/x-icon">
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/tailwind/post/app.css'); ?>">
 
   <?php echo (isset($additional_head) ? $additional_head : ''); ?>
   <style type="text/css">
-    html,
-    body,
-    header, {
-      height: 100%;
-    }
-
-    @media (min-width: 560px) and (max-width: 740px) {
-      html,
-      body,
-      header, {
-        height: 500px;
-      }
-    }
-
-    @media (min-width: 800px) and (max-width: 850px) {
-      html,
-      body,
-      header, {
-        height: 500px;
-      }
-    }
-
-    @media (min-width: 800px) and (max-width: 850px) {
-      .navbar:not(.top-nav-collapse) {
-        background: #1C2A48 !important;
-      }
-
-      .navbar {
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12) !important;
-      }
-    }
-
-    .map-container-5 {
-      overflow: hidden;
-      padding-bottom: 56.25%;
-      position: relative;
-      height: 0;
-    }
-
-    .map-container-5 iframe {
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-    }
 
     .user {
       display: inline-block;
-      width: 25px;
-      height: 25px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
+      margin: 0 2px;
 
       background-repeat: no-repeat;
       background-position: center center;
@@ -81,14 +29,56 @@
   </style>
 </head>
 
-<body class="event-lp">
-    <?php
-    $this->load->view('alert');
-    ?>
-  <!--Navigation & Intro-->
-  <header>
+<body>
+  <?php $this->load->view('alert'); ?>
+  <header class="p-4 dark:bg-gray-800 dark:text-gray-100 border-b-2 shadow-md">
+    <div class="container flex justify-between h-16 mx-auto">
+      <a rel="noopener noreferrer" href="<?php echo base_url() ?>" class="flex items-center p-2">
+        <img src="<?php echo base_url('assets/honey.png') ?>" class="w-10 h-10" alt="Logo">
+      </a>
+      <div class="flex items-center md:space-x-4">
+        <div class="relative">
+          <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
+            <svg fill="currentColor" viewBox="0 0 512 512" class="w-4 h-4 dark:text-gray-100">
+              <path d="M479.6,399.716l-81.084-81.084-62.368-25.767A175.014,175.014,0,0,0,368,192c0-97.047-78.953-176-176-176S16,94.953,16,192,94.953,368,192,368a175.034,175.034,0,0,0,101.619-32.377l25.7,62.2L400.4,478.911a56,56,0,1,0,79.2-79.195ZM48,192c0-79.4,64.6-144,144-144s144,64.6,144,144S271.4,336,192,336,48,271.4,48,192ZM456.971,456.284a24.028,24.028,0,0,1-33.942,0l-76.572-76.572-23.894-57.835L380.4,345.771l76.573,76.572A24.028,24.028,0,0,1,456.971,456.284Z"></path>
+            </svg>
+          </div>
+          <input type="search" name="Search" placeholder="Search..." class="w-full border py-2 pl-10 pr-4 text-sm rounded-md sm:w-auto focus:outline-none">
+        </div>
+      </div>
+      <?php if($this->session->userdata('is_Logged') == TRUE) { ?>
+        <div class="flex items-center">
+          <a class="flex" href="<?php echo base_urL('profile') ?>">
+              <?php if (!$this->db->select('foto')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('users')->row()->foto) { ?>
+                <img class="user" src="<?php echo base_url('assets/DefaultProfile.jpg'); ?>" alt="PP"/>
+              <?php } else { ?>
+                <img class="user" src="<?php echo site_url('uploads/foto-profil/'.$this->db->select('foto')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('users')->row()->foto);?>" class="img-responsive" style="max-width: 258px; max-height: 258px; margin: auto;" alt="">
+              <?php } ?>
+              <div class="mdmax:hidden my-auto">
+                <p class="">
+                  <?php echo $this->session->userdata('username')?>
+                </p>
+              </div>
+          </a>
+          
+          <a class="nav-link" href="<?php echo base_urL('auth/logout') ?>">
+            <i class="fas fa-arrow-right pr-1"></i>
+          </a>
+        </div>
+      <?php } else {?>
+        <a class="my-auto px-6 font-semibold rounded lg:block dark:bg-sky-400 dark:text-gray-900" href="<?php echo base_urL('auth/login') ?>">
+          Login
+        </a>
+      <?php } ?>
+      <!-- <button title="Open menu" type="button" class="p-4 lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 dark:text-gray-100">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button> -->
+    </div>
+  </header>
     <!--Navbar-->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background: white; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12) !important;">
+    <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background: white; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12) !important;">
       <div class="container-fluid">
         <a class="navbar-brand" href="<?php echo base_url()?>">
           <strong><?php echo $_app_name; ?></strong>
@@ -97,7 +87,6 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!--Links-->
           <ul class="navbar-nav mr-auto smooth-scroll">
             <li class="nav-item">
               <a class="nav-link" href="<?php echo base_url() ?>">Home
@@ -112,7 +101,6 @@
               </a>
             </li>
           </ul>
-          <!--Social Icons-->
           <ul class="navbar-nav">
               <li class="nav-item">
                 <?php if($this->session->userdata('is_Logged') == TRUE) { ?>
@@ -139,7 +127,7 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </nav> -->
     <!--Navbar-->
     <div class="mb-3">
       <?php
@@ -148,26 +136,17 @@
         }
       ?>
     </div>
-  </header>
   <!--Navigation & Intro-->
   <!--Main content-->
   <!--Main content-->
 
   <!--Footer-->
 
-  <footer class="page-footer indigo darken-3 text-center text-md-left pt-5">
-
-    <!--Footer Links-->
+  <!-- <footer class="page-footer indigo darken-3 text-center text-md-left pt-5">
     <div class="container mb-3">
-
-      <!--First row-->
       <div class="row">
-
-        <!--First column-->
-        <div class="col-md-4 mt-1 mb-1 wow fadeIn" data-wow-delay="0.3s">
-          <!--About-->
+        <div class="col-md-4 mt-1 mb-1">
           <h5 class="title mb-4 font-weight-bold">Tentang <?php echo $_app_name; ?></h5>
-
           <p align="justify">
             <?php echo $_app_name; ?> merupakan aplikasi Belanja online berbasis web untuk memesan makanan yang berupa olahan ikan 
             yang dapat dipesan melalui Online.
@@ -175,58 +154,30 @@
           <p align="justify">
             Dimana Pengguna dapat melakukan order terlebih dahulu melalui aplikasi ini, dan pesanan akan dikirim setelah melakukan Pembayaran.
           </p>
-          <!--/About -->
-
         </div>
-        <!--/First column-->
-
         <hr class="w-100 clearfix d-md-none">
-
-        <!--Second column-->
-        <div class="col-lg-3 ml-lg-auto col-md-4 mt-1 mb-1 wow fadeIn" data-wow-delay="0.3s">
-          <!--Search-->
+        <div class="col-lg-3 ml-lg-auto col-md-4 mt-1 mb-1">
           <h5 class="text-uppercase mb-4 font-weight-bold">Hubungi Kami</h5>
-
-          <!--Info-->
           <p><i class="fas fa-home pr-1"></i> <?php echo (!empty($kontak['alamat']) ? $kontak['alamat'] : 'New York, NY 10012, US'); ?></p>
           <p><i class="fas fa-envelope pr-1"></i> <?php echo (!empty($kontak['email']) ? $kontak['email'] : 'info@example.com'); ?></p>
           <p><i class="fas fa-phone pr-1"></i> <?php echo (!empty($kontak['no_telp']) ? $kontak['no_telp'] : '+ 01 234 567 88'); ?></p>
-
         </div>
-        <!--/Second column-->
-
         <hr class="w-100 clearfix d-md-none">
-
-        <!--Third column-->
-        <div class="col-lg-3 ml-lg-auto col-md-4 mt-1 mb-1 wow fadeIn" data-wow-delay="0.3s">
-          <!--Contact-->
+        <div class="col-lg-3 ml-lg-auto col-md-4 mt-1 mb-1">
           <h5 class="text-uppercase mb-4 font-weight-bold">Peta Lokasi</h5>
-
-          <!--Google map-->
           <div id="map-container-google-9" class="z-depth-1-half map-container-5" style="height: 300px">
             <?php echo (!empty($kontak['maps_iframe']) ? $kontak['maps_iframe'] : '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.339226425949!2d110.39981325068287!3d-6.969247694940433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70f4ca0f066c6b%3A0x418ec7cc043f575f!2sSMK%20Pelayaran%20Wira%20Samudera!5e0!3m2!1sid!2sid!4v1662432807416!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           '); ?>
           </div>
-          <!--Google Maps-->
-
         </div>
-        <!--/Third column-->
-
       </div>
-      <!--/First row-->
-
     </div>
-    <!--/Footer Links-->
-
-    <!--Copyright-->
     <div class="footer-copyright py-3 text-center">
       <div class="container-fluid">
         © <?php echo date('Y'); ?> Copyright: <a> <?php echo $_app_name; ?> </a>
       </div>
     </div>
-    <!--/Copyright-->
-
-  </footer>
+  </footer> -->
   <!--/Footer-->
 
   <!--SCRIPTS-->

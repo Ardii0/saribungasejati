@@ -18,10 +18,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <?php $this->load->view('alert'); ?>
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <img class="mx-auto h-10 w-auto" src="<?php echo base_url('assets/honey.png') ?>" alt="Sari Bunga Sejati Icon">
-            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Daftar Akun</h2>
+            <h2 class="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Daftar Akun</h2>
         </div>
 
-        <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div class="mt-3 sm:mx-auto sm:w-full sm:max-w-sm">
             <?php echo form_open('auth/register', 'class="space-y-6" id="sign_in"'); ?>
                 <div>
                     <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
