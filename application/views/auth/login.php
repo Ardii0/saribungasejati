@@ -11,6 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <title><?php echo $title; ?></title>
     <link rel="icon" href="<?php echo base_url('assets/WebIcon.jpg'); ?>" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo base_url('assets/plugins/tailwind/post/app.css'); ?>">
+    <script src="<?php echo base_url('assets/plugins/tailwind/post/app.js'); ?>"></script>
 </head>
 
 <body>

@@ -65,20 +65,23 @@ DROP TABLE IF EXISTS `kontak`;
 
 CREATE TABLE `kontak` (
   `id_kontak` int NOT NULL DEFAULT '1',
-  `alamat` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `no_telp` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `no_fax` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `maps_iframe` text COLLATE utf8mb4_general_ci NOT NULL,
-  `livechat_api` text COLLATE utf8mb4_general_ci NOT NULL,
-  `whatsapp_number` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
-  `facebook_url` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `instagram_url` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `twitter_url` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `no_telp` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `no_fax` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `maps_iframe` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `livechat_api` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `whatsapp_number` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `facebook_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `instagram_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `twitter_url` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`id_kontak`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `kontak` */
+
+insert  into `kontak`(`id_kontak`,`alamat`,`no_telp`,`no_fax`,`email`,`maps_iframe`,`livechat_api`,`whatsapp_number`,`facebook_url`,`instagram_url`,`twitter_url`) values 
+(1,'Jl. Kokrosono No.70, Bulu Lor, Kec. Semarang Utara, Kota Semarang, Jawa Tengah 50179','(024)111','','kontak@smk-pws.sch.id','','','08112881800','https://www.facebook.com/','https://www.instagram.com/','https://twitter.com/');
 
 /*Table structure for table `pembayaran` */
 

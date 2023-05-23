@@ -17,8 +17,11 @@ module.exports = {
         }
       },
       screens: {
-        mdmax: { 
+        mdmax: {
           max: '767px'
+        },
+        mdmin: { 
+          min: '767px'
         },
       },
     },

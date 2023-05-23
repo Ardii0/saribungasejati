@@ -10,7 +10,7 @@
   <title><?php echo $title; ?></title>
   <link rel="icon" href="<?php echo base_url('assets/WebIcon.jpg'); ?>" type="image/x-icon">
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/tailwind/post/app.css'); ?>">
-
+  <script src="<?php echo base_url('assets/plugins/tailwind/post/app.js'); ?>"></script>
   <?php echo (isset($additional_head) ? $additional_head : ''); ?>
   <style type="text/css">
 
@@ -32,7 +32,7 @@
 <body>
   <?php $this->load->view('alert'); ?>
   <header class="p-4 dark:bg-gray-800 dark:text-gray-100 border-b-2 shadow-md">
-    <div class="container flex justify-between h-16 mx-auto">
+    <div class="flex justify-between h-14">
       <a rel="noopener noreferrer" href="<?php echo base_url() ?>" class="flex items-center p-2">
         <img src="<?php echo base_url('assets/honey.png') ?>" class="w-10 h-10" alt="Logo">
       </a>
@@ -47,18 +47,18 @@
         </div>
       </div>
       <?php if($this->session->userdata('is_Logged') == TRUE) { ?>
-        <div class="flex items-center">
+        <div class="flex items-end">
           <a class="flex" href="<?php echo base_urL('profile') ?>">
-              <?php if (!$this->db->select('foto')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('users')->row()->foto) { ?>
-                <img class="user" src="<?php echo base_url('assets/DefaultProfile.jpg'); ?>" alt="PP"/>
-              <?php } else { ?>
-                <img class="user" src="<?php echo site_url('uploads/foto-profil/'.$this->db->select('foto')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('users')->row()->foto);?>" class="img-responsive" style="max-width: 258px; max-height: 258px; margin: auto;" alt="">
-              <?php } ?>
-              <div class="mdmax:hidden my-auto">
-                <p class="">
-                  <?php echo $this->session->userdata('username')?>
-                </p>
-              </div>
+            <?php if (!$this->db->select('foto')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('users')->row()->foto) { ?>
+              <img class="user" src="<?php echo base_url('assets/DefaultProfile.jpg'); ?>" alt="PP"/>
+            <?php } else { ?>
+              <img class="user" src="<?php echo site_url('uploads/foto-profil/'.$this->db->select('foto')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('users')->row()->foto);?>" class="img-responsive" style="max-width: 258px; max-height: 258px; margin: auto;" alt="">
+            <?php } ?>
+            <div class="mdmax:hidden my-auto">
+              <p class="">
+                <?php echo $this->session->userdata('username')?>
+              </p>
+            </div>
           </a>
           
           <a class="nav-link" href="<?php echo base_urL('auth/logout') ?>">
@@ -66,82 +66,47 @@
           </a>
         </div>
       <?php } else {?>
-        <a class="my-auto px-6 font-semibold rounded lg:block dark:bg-sky-400 dark:text-gray-900" href="<?php echo base_urL('auth/login') ?>">
+        <a class="my-auto px-6 font-semibold rounded lg:block dark:bg-sky-400 dark:text-gray-900 text-right" href="<?php echo base_urL('auth/login') ?>">
           Login
         </a>
       <?php } ?>
-      <!-- <button title="Open menu" type="button" class="p-4 lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 dark:text-gray-100">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button> -->
     </div>
   </header>
-    <!--Navbar-->
-    <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background: white; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12) !important;">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="<?php echo base_url()?>">
-          <strong><?php echo $_app_name; ?></strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto smooth-scroll">
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url() ?>">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url('profile/history'); ?>">
-                History
-              </a>
-            </li>
-          </ul>
-          <ul class="navbar-nav">
-              <li class="nav-item">
-                <?php if($this->session->userdata('is_Logged') == TRUE) { ?>
-                  <div class="d-flex">
-                    <a class="nav-link" href="<?php echo base_urL('profile') ?>">
-                        <?php if (!$this->db->select('foto')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('users')->row()->foto) { ?>
-                          <img class="user" src="<?php echo base_url('assets/DefaultProfile.jpg'); ?>"/>
-                        <?php } else { ?>
-                          <img class="user" src="<?php echo site_url('uploads/foto-profil/'.$this->db->select('foto')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('users')->row()->foto);?>" class="img-responsive" style="max-width: 258px; max-height: 258px; margin: auto;" alt="">
-                        <?php } ?>
-                      <?php echo $this->session->userdata('username')?>
-                    </a>
-                    
-                    <a class="nav-link" href="<?php echo base_urL('auth/logout') ?>">
-                      <i class="fas fa-arrow-right pr-1"></i>
-                    </a>
-                  </div>
-                <?php } else {?>
-                  <a class="nav-link" href="<?php echo base_urL('auth/login') ?>">
-                    Login
-                  </a>
-                <?php } ?>
-              </li>
-          </ul>
+
+  <div class="bg-slate-700 h-screen mx-auto">
+    <?php
+      if (isset($content) && $content) {
+        $this->load->view($content);
+      }
+    ?>
+  </div>
+    
+  <div class="bg-white text-gray p-12 mdmax:p-6 bottom-0 border-t-2 border-orange-400">
+    <div class="justify-between mdmin:flex">
+      <div class="lg:w-[630px] lg:pr-16">
+        <div class="flex">
+          <img src="<?php echo base_url('assets/honey.png') ?>" alt="social_media" class="w-10" />
+          <h1 class="my-auto ml-2 text-2xl font-bold" style="font-family: Open Sauce One, Nunito Sans, -apple-system, sans-serif;"><?php echo $_app_name; ?></h1>
+        </div>
+        <p class="mt-6 mb-8"><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <div class="flex pl-2 gap-4 fill-orange-400">
+          <img src="<?php echo base_url('assets/icons/whatsapp.svg') ?>" alt="social_media" class="cursor-pointer w-8 h-8 fill-orange-400" />
+          <img src="<?php echo base_url('assets/icons/facebook.svg') ?>" alt="social_media" class="cursor-pointer w-8 h-8" />
+          <img src="<?php echo base_url('assets/icons/instagram.svg') ?>" alt="social_media" class="cursor-pointer w-8 h-8" />
         </div>
       </div>
-    </nav> -->
-    <!--Navbar-->
-    <div class="mb-3">
-      <?php
-        if (isset($content) && $content) {
-          $this->load->view($content);
-        }
-      ?>
+      <div class="mdmax:mt-8">
+        <h1 class="text-orange-400 font-bold mb-8">Terhubung</h1>
+        <p class="font-medium">
+          <a href="#">FAQ</a>
+        </p>
+        <p class="font-medium mt-3">
+          <a href="#">Kontak Kami</a>
+        </p>
+      </div>
     </div>
-  <!--Navigation & Intro-->
-  <!--Main content-->
-  <!--Main content-->
-
-  <!--Footer-->
-
+  </div>
+    
   <!-- <footer class="page-footer indigo darken-3 text-center text-md-left pt-5">
     <div class="container mb-3">
       <div class="row">
@@ -180,41 +145,14 @@
   </footer> -->
   <!--/Footer-->
 
-  <!--SCRIPTS-->
-
-  <!--JQuery-->
-  <script src="<?php echo base_url('assets/admin-page/js/jquery.min.js'); ?>"></script>
-
-  <!--Bootstrap tooltips-->
-  <script type="text/javascript" src="<?php echo base_url('assets/landing-page'); ?>/js/popper.min.js"></script>
-
-  <!-- Bootstrap Core Js -->
-  <script src="<?php echo base_url('assets/admin-page'); ?>/plugins/bootstrap/js/bootstrap.js"></script>
-
-  <!--Bootstrap core JavaScript-->
-  <script type="text/javascript" src="<?php echo base_url('assets/landing-page'); ?>/js/bootstrap.min.js"></script>
-
-  <!--MDB core JavaScript-->
-  <script type="text/javascript" src="<?php echo base_url('assets/landing-page'); ?>/js/mdb.min.js"></script>
   <?php echo (isset($additional_body) ? $additional_body : ''); ?>
-  <script>
-    //Animation init
-    new WOW().init();
-
-    // Material Select Initialization
-    $(document).ready(function() {
-      $('.mdb-select').material_select();
-
-    });
-  </script>
   <?php if (isset($kontak['whatsapp_number'])) { ?>
-    <!-- GetButton.io widget -->
     <script type="text/javascript">
       (function() {
         var options = {
-          whatsapp: "<?php echo $kontak['whatsapp_number']; ?>", // WhatsApp number
-          call_to_action: "Butuh Bantuan?", // Call to action
-          position: "right", // Position may be 'right' or 'left'
+          whatsapp: "<?php echo $kontak['whatsapp_number']; ?>",
+          call_to_action: "Butuh Bantuan?",
+          position: "right",
         };
         var proto = document.location.protocol,
           host = "getbutton.io",
@@ -230,7 +168,6 @@
         x.parentNode.insertBefore(s, x);
       })();
     </script>
-    <!-- /GetButton.io widget -->
   <?php } ?>
 </body>
 
