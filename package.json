@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ardii0/minafood.git"
+    "url": "git+https://github.com/Ardii0/saribungasejati.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Ardii0/minafood/issues"
+    "url": "https://github.com/Ardii0/saribungasejati/issues"
   },
-  "homepage": "https://github.com/Ardii0/minafood#readme",
+  "homepage": "https://github.com/Ardii0/saribungasejati#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.14",
     "laravel-mix": "^6.0.49",

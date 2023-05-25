@@ -24,6 +24,11 @@ module.exports = {
           min: '767px'
         },
       },
+      colors: {
+        neutral: {
+          skin: '#FBE7D0',
+        },
+      }
     },
   },
   plugins: [],

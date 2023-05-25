@@ -47,14 +47,14 @@
         </div>
       </div>
       <?php if($this->session->userdata('is_Logged') == TRUE) { ?>
-        <div class="flex items-end">
+        <div class="flex items-center">
           <a class="flex" href="<?php echo base_urL('profile') ?>">
             <?php if (!$this->db->select('foto')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('users')->row()->foto) { ?>
               <img class="user" src="<?php echo base_url('assets/DefaultProfile.jpg'); ?>" alt="PP"/>
             <?php } else { ?>
               <img class="user" src="<?php echo site_url('uploads/foto-profil/'.$this->db->select('foto')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('users')->row()->foto);?>" class="img-responsive" style="max-width: 258px; max-height: 258px; margin: auto;" alt="">
             <?php } ?>
-            <div class="mdmax:hidden my-auto">
+            <div class="mdmax:hidden my-auto pl-2">
               <p class="">
                 <?php echo $this->session->userdata('username')?>
               </p>
@@ -73,7 +73,7 @@
     </div>
   </header>
 
-  <div class="bg-slate-700 h-screen mx-auto">
+  <div class="min-h-screen my-4">
     <?php
       if (isset($content) && $content) {
         $this->load->view($content);
@@ -81,8 +81,8 @@
     ?>
   </div>
     
-  <div class="bg-white text-gray p-12 mdmax:p-6 bottom-0 border-t-2 border-orange-400">
-    <div class="justify-between mdmin:flex">
+  <footer class="mt-auto bg-white text-gray p-12 mdmax:hidden border-t-2 border-orange-400">
+    <div class="justify-between flex">
       <div class="lg:w-[630px] lg:pr-16">
         <div class="flex">
           <img src="<?php echo base_url('assets/honey.png') ?>" alt="social_media" class="w-10" />
@@ -105,45 +105,7 @@
         </p>
       </div>
     </div>
-  </div>
-    
-  <!-- <footer class="page-footer indigo darken-3 text-center text-md-left pt-5">
-    <div class="container mb-3">
-      <div class="row">
-        <div class="col-md-4 mt-1 mb-1">
-          <h5 class="title mb-4 font-weight-bold">Tentang <?php echo $_app_name; ?></h5>
-          <p align="justify">
-            <?php echo $_app_name; ?> merupakan aplikasi Belanja online berbasis web untuk memesan makanan yang berupa olahan ikan 
-            yang dapat dipesan melalui Online.
-          </p>
-          <p align="justify">
-            Dimana Pengguna dapat melakukan order terlebih dahulu melalui aplikasi ini, dan pesanan akan dikirim setelah melakukan Pembayaran.
-          </p>
-        </div>
-        <hr class="w-100 clearfix d-md-none">
-        <div class="col-lg-3 ml-lg-auto col-md-4 mt-1 mb-1">
-          <h5 class="text-uppercase mb-4 font-weight-bold">Hubungi Kami</h5>
-          <p><i class="fas fa-home pr-1"></i> <?php echo (!empty($kontak['alamat']) ? $kontak['alamat'] : 'New York, NY 10012, US'); ?></p>
-          <p><i class="fas fa-envelope pr-1"></i> <?php echo (!empty($kontak['email']) ? $kontak['email'] : 'info@example.com'); ?></p>
-          <p><i class="fas fa-phone pr-1"></i> <?php echo (!empty($kontak['no_telp']) ? $kontak['no_telp'] : '+ 01 234 567 88'); ?></p>
-        </div>
-        <hr class="w-100 clearfix d-md-none">
-        <div class="col-lg-3 ml-lg-auto col-md-4 mt-1 mb-1">
-          <h5 class="text-uppercase mb-4 font-weight-bold">Peta Lokasi</h5>
-          <div id="map-container-google-9" class="z-depth-1-half map-container-5" style="height: 300px">
-            <?php echo (!empty($kontak['maps_iframe']) ? $kontak['maps_iframe'] : '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.339226425949!2d110.39981325068287!3d-6.969247694940433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70f4ca0f066c6b%3A0x418ec7cc043f575f!2sSMK%20Pelayaran%20Wira%20Samudera!5e0!3m2!1sid!2sid!4v1662432807416!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          '); ?>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright py-3 text-center">
-      <div class="container-fluid">
-        © <?php echo date('Y'); ?> Copyright: <a> <?php echo $_app_name; ?> </a>
-      </div>
-    </div>
-  </footer> -->
-  <!--/Footer-->
+  </footer>
 
   <?php echo (isset($additional_body) ? $additional_body : ''); ?>
   <?php if (isset($kontak['whatsapp_number'])) { ?>

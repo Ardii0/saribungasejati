@@ -11,6 +11,9 @@ class Profile extends CI_Controller
 		$this->load->helper(['url', 'form', 'html', 'main_helper']);
 		$this->load->library(['template', 'session', 'form_validation']);
 		$this->load->model(['Auth_model', 'Main_model']);
+		if ($this->session->userdata('is_Logged') == FALSE) {
+			redirect('auth/login', 'refresh');
+		}
 	}
 
 	public function index()
@@ -36,7 +39,7 @@ class Profile extends CI_Controller
 		$data = [];
 		if (!empty($_FILES['foto']['name'])) {
 			$config['upload_path']          = './uploads/foto-profil/';
-			$config['allowed_types']        = 'jpg|png';
+			$config['allowed_types']        = 'jpg|jpeg|png';
 			$config['max_size']             = 2000000;
 			$config['file_name']            = $_FILES['foto']['name'];
 
