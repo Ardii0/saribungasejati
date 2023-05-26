@@ -41,11 +41,8 @@ class Belanja extends CI_Controller
                 'id'    => 'jumlah',
                 'name'  => 'jumlah',
                 'type'  => 'number',
-                'value' => $this->form_validation->set_value('jumlah'),
+                'value' => 1,
             );
-            $this->data['additional_head'] = '<link href="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
-                                              <link rel="stylesheet" href="' . base_url() . 'assets/landing-page/css/detail_produk.css" />';
-            $this->data['additional_body'] = '<script src="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/js/bootstrap-select.js"></script>';
             $this->data['content'] = 'interface/detail_produk/detail';
             $this->template->_render_page('layout/landingpagePanel', $this->data);
         }

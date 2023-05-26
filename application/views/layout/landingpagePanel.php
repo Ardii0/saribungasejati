@@ -11,8 +11,17 @@
   <link rel="icon" href="<?php echo base_url('assets/WebIcon.jpg'); ?>" type="image/x-icon">
   <link rel="stylesheet" href="<?php echo base_url('assets/plugins/tailwind/post/app.css'); ?>">
   <script src="<?php echo base_url('assets/plugins/tailwind/post/app.js'); ?>"></script>
+  <?php $this->load->view('components/script'); ?>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="<?php echo base_url('assets/plugins/fontawesome-free/css/all.min.css'); ?>">
   <?php echo (isset($additional_head) ? $additional_head : ''); ?>
   <style type="text/css">
+    .onhov:hover .dropdown {
+      visibility: visible;
+      opacity: 1;
+      padding: 10px;
+      font-size: 14px;
+    }
 
     .user {
       display: inline-block;
@@ -47,7 +56,7 @@
         </div>
       </div>
       <?php if($this->session->userdata('is_Logged') == TRUE) { ?>
-        <div class="flex items-center">
+        <div class="flex items-center relative onhov">
           <a class="flex" href="<?php echo base_urL('profile') ?>">
             <?php if (!$this->db->select('foto')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('users')->row()->foto) { ?>
               <img class="user" src="<?php echo base_url('assets/DefaultProfile.jpg'); ?>" alt="PP"/>
@@ -61,9 +70,21 @@
             </div>
           </a>
           
-          <a class="nav-link" href="<?php echo base_urL('auth/logout') ?>">
-            <i class="fas fa-arrow-right pr-1"></i>
-          </a>
+          <!-- <div class="flex"> -->
+            <div class="dropdown invisible absolute top-14 opacity-0 ease-linear transition-all duration-300 cursor-default z-10 w-full border bg-gray-300 transform rounded-lg">
+              <div class="text-white divide-y gap-y-1">
+                <a href="<?php echo base_url('profile/')?>" class="flex items-center justify-center text-sm font-medium cursor-pointer gap-2">
+                  <i class="fas fa-user"></i>
+                  Profile
+                </a>
+                <a href="<?php echo base_urL('auth/logout') ?>"
+                  class="flex items-center justify-center text-sm font-medium cursor-pointer gap-2">
+                  <i class="fas fa-sign-out-alt pl-1"></i>
+                  Logout
+                </a>
+              </div>
+            </div>
+          <!-- </div> -->
         </div>
       <?php } else {?>
         <a class="my-auto px-6 font-semibold rounded lg:block dark:bg-sky-400 dark:text-gray-900 text-right" href="<?php echo base_urL('auth/login') ?>">
@@ -131,6 +152,35 @@
       })();
     </script>
   <?php } ?>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          container: {
+            screens: {
+              sm: '100%',
+              md: '100%',
+              lg: '1024px',
+              xl: '1200px'
+            }
+          },
+          screens: {
+            mdmax: {
+              max: '767px'
+            },
+            mdmin: { 
+              min: '767px'
+            },
+          },
+          colors: {
+            neutral: {
+              skin: '#FBE7D0',
+            },
+          }
+        },
+      }
+    }
+  </script>
 </body>
 
 </html>
