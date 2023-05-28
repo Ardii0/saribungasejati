@@ -71,6 +71,10 @@ class Profile extends CI_Controller
 // Alamat
     public function alamat()
     {
+		$where = array('id_user' => $this->session->userdata('id_user'));
+		$data = $this->Main_model->where_data($where, 'alamat')->row_array();
+		$this->data['data'] = $this->Main_model->where_data($where, 'alamat')->row_array();
+
         $this->form_validation->set_rules('nama_penerima', 'Nama Penerima', 'trim|required');
         $this->form_validation->set_rules('nomor_hp', 'No HP', 'trim|required');
         $this->form_validation->set_rules('kota', 'Kota', 'trim|required');
@@ -82,29 +86,29 @@ class Profile extends CI_Controller
                 'id'    => 'nama_penerima',
                 'name'  => 'nama_penerima',
                 'type'  => 'text',
-                'value' => $this->form_validation->set_value('nama_penerima'),
+                'value' => $this->form_validation->set_value('nama_penerima', $data['nama_penerima']),
             );
             $this->data['nomor_hp'] = array(
                 'id'    => 'nomor_hp',
                 'name'  => 'nomor_hp',
                 'type'  => 'number',
-                'value' => $this->form_validation->set_value('nomor_hp'),
+                'value' => $this->form_validation->set_value('nomor_hp', $data['nomor_hp']),
             );
             $this->data['kota'] = array(
                 'id'    => 'kota',
                 'name'  => 'kota',
                 'type'  => 'text',
-                'value' => $this->form_validation->set_value('kota'),
+                'value' => $this->form_validation->set_value('kota', $data['kota']),
             );
             $this->data['alamat'] = array(
                 'name'  => 'alamat',
-                'value' => $this->form_validation->set_value('alamat'),
+                'value' => $this->form_validation->set_value('alamat', $data['alamat']),
             );
             $this->data['kode_pos'] = array(
                 'id'    => 'kode_pos',
                 'name'  => 'kode_pos',
                 'type'  => 'text',
-                'value' => $this->form_validation->set_value('kode_pos'),
+                'value' => $this->form_validation->set_value('kode_pos', $data['kode_pos']),
             );
             $this->data['content'] = 'auth/alamat';
             $this->template->_render_page('layout/landingpagePanel', $this->data);
@@ -128,6 +132,27 @@ class Profile extends CI_Controller
 			}
         }
     }
+	
+    public function update_alamat()
+    {
+		$where = array('id_user' => $this->session->userdata('id_user'));
+		$nama_penerima = $this->input->post('nama_penerima', true);
+		$nomor_hp = $this->input->post('nomor_hp', true);
+		$kota = $this->input->post('kota', true);
+		$alamat = $this->input->post('alamat', true);
+		$kode_pos = $this->input->post('kode_pos', true);
+		$data = [
+			'nama_penerima'   	=> $nama_penerima,
+			'nomor_hp'         	=> $nomor_hp,
+			'kota'     			=> $kota,
+			'alamat'         	=> $alamat,
+			'kode_pos'         	=> $kode_pos,
+		];
+		if ($this->Main_model->update_data($where, $data, 'alamat')) {
+			$this->session->set_flashdata('success', 'Alamat berhasil diubah!');
+			redirect('profile', 'refresh');
+		}
+	}
 	
 // History
 	public function history()

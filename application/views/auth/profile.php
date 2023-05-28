@@ -36,17 +36,36 @@
                 </table>
             </div>
             <div class="mt-5">
-                <h4 class="text-orange-400 text-xl font-semibold">Kontak</h4>
-                <?php if(isset($this->db->select('alamat')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('alamat')->row()->alamat)){ ?>
+                <?php $alamat = $this->db->select('*')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('alamat')->row();?>
+                <?php if(isset($alamat->alamat)){ ?>
+                    <div class="flex justify-between w-fit gap-12">
+                        <h4 class="text-orange-400 text-xl font-semibold">Kontak</h4>
+                        <a href="<?php echo base_url('profile/alamat')?>" class="flex items-center">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </div>
                     <table>
                         <tr>
                             <td style="padding: 20px 0 0 0;">Alamat&ensp;&ensp;</td>
                             <td style="padding: 20px 0 0 40px;">
-                                <?php echo $this->db->select('alamat')->where("id_user", $this->session->userdata('id_user'))->limit(1)->get('alamat')->row()->alamat;?>
+                                <?php echo $alamat->alamat;?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 20px 0 0 0;">Penerima&ensp;&ensp;</td>
+                            <td style="padding: 20px 0 0 40px;">
+                                <?php echo $alamat->nama_penerima;?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 20px 0 0 0;">Nomor Telephone&ensp;&ensp;</td>
+                            <td style="padding: 20px 0 0 40px;">
+                                <?php echo $alamat->nomor_hp;?>
                             </td>
                         </tr>
                     </table>
                 <?php } else {?>
+                <h4 class="text-orange-400 text-xl font-semibold">Kontak</h4>
                     <table>
                         <tr>
                             <td style="padding: 20px 0 0 0;">Alamat Kosong</td>
