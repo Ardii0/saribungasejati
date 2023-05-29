@@ -36,7 +36,6 @@ class Produk extends CI_Controller
 
         if ($this->form_validation->run() == FALSE) {
 			$this->data['kategori'] = $this->Main_model->get_data('kategori')->result();
-			$this->data['tipe'] = $this->Main_model->get_data('tipe')->result();
             $this->data['nama_produk'] = array(
                 'id'    => 'nama_produk',
                 'name'  => 'nama_produk',
@@ -48,12 +47,6 @@ class Produk extends CI_Controller
                 'name'  => 'id_kategori',
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('id_kategori'),
-            );
-            $this->data['id_tipe'] = array(
-                'id'    => 'id_tipe',
-                'name'  => 'id_tipe',
-                'type'  => 'text',
-                'value' => $this->form_validation->set_value('id_tipe'),
             );
             $this->data['harga'] = array(
                 'id'    => 'harga',
@@ -77,9 +70,9 @@ class Produk extends CI_Controller
                 'name'  => 'deskripsi',
                 'value' => $this->form_validation->set_value('deskripsi'),
             );
-            $this->data['additional_head'] = '<link href="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
-            $this->data['additional_body'] = '<script src="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/js/bootstrap-select.js"></script><script src="' . base_url() . 'assets/admin-page/plugins/ckeditor/ckeditor.js"></script>
-            <script src="' . base_url() . 'assets/admin-page/js/pages/forms/editors.js"></script>';
+            $this->data['additional_head'] = '<link href="' . base_url() . 'assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
+            $this->data['additional_body'] = '<script src="' . base_url() . 'assets/plugins/bootstrap-select/js/bootstrap-select.js"></script><script src="' . base_url() . 'assets/plugins/ckeditor/ckeditor.js"></script>
+            <script src="'.base_url().'assets/js/pages/forms/editors.js"></script>';
             $this->data['content'] = 'backend/modul-admin/produk/produk_add';
             $this->template->_render_page('layout/adminPanel', $this->data);
         } else {
@@ -193,10 +186,10 @@ class Produk extends CI_Controller
                     'type'  => 'file',
                     'value' => $this->form_validation->set_value('id_produk', $row['id_produk']),
                 );
-				$this->data['additional_head'] = '<link href="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
-				$this->data['additional_body'] = '<script src="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/js/bootstrap-select.js"></script>
-                <script src="' . base_url() . 'assets/admin-page/plugins/ckeditor/ckeditor.js"></script>
-                <script src="' . base_url() . 'assets/admin-page/js/pages/forms/editors.js"></script>';
+				$this->data['additional_head'] = '<link href="' . base_url() . 'assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
+				$this->data['additional_body'] = '<script src="' . base_url() . 'assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+                <script src="' . base_url() . 'assets/plugins/ckeditor/ckeditor.js"></script>
+                <script src="' . base_url() . 'assets/js/pages/forms/editors.js"></script>';
                 $this->data['content'] = 'backend/modul-admin/produk/produk_edit';
                 $this->template->_render_page('layout/adminPanel', $this->data);
             } else {
@@ -285,8 +278,8 @@ class Produk extends CI_Controller
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('nama_kategori'),
             );
-            $this->data['additional_head'] = '<link href="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
-            $this->data['additional_body'] = '<script src="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/js/bootstrap-select.js"></script>';
+            $this->data['additional_head'] = '<link href="' . base_url() . 'assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
+            $this->data['additional_body'] = '<script src="' . base_url() . 'assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>';
             $this->data['content'] = 'backend/modul-admin/kategori/kategori_add';
             $this->template->_render_page('layout/adminPanel', $this->data);
         } else {
@@ -324,8 +317,8 @@ class Produk extends CI_Controller
                     'type'  => 'file',
                     'value' => $this->form_validation->set_value('id_kategori', $row['id_kategori']),
                 );
-				$this->data['additional_head'] = '<link href="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
-				$this->data['additional_body'] = '<script src="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/js/bootstrap-select.js"></script>';
+				$this->data['additional_head'] = '<link href="' . base_url() . 'assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
+				$this->data['additional_body'] = '<script src="' . base_url() . 'assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>';
                 $this->data['content'] = 'backend/modul-admin/kategori/kategori_edit';
                 $this->template->_render_page('layout/adminPanel', $this->data);
             } else {
@@ -371,8 +364,8 @@ class Produk extends CI_Controller
                 'type'  => 'text',
                 'value' => $this->form_validation->set_value('nama_tipe'),
             );
-            $this->data['additional_head'] = '<link href="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
-            $this->data['additional_body'] = '<script src="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/js/bootstrap-select.js"></script>';
+            $this->data['additional_head'] = '<link href="' . base_url() . 'assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
+            $this->data['additional_body'] = '<script src="' . base_url() . 'assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>';
             $this->data['content'] = 'backend/modul-admin/tipe/tipe_add';
             $this->template->_render_page('layout/adminPanel', $this->data);
         } else {
@@ -410,8 +403,8 @@ class Produk extends CI_Controller
                     'type'  => 'file',
                     'value' => $this->form_validation->set_value('id_tipe', $row['id_tipe']),
                 );
-				$this->data['additional_head'] = '<link href="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
-				$this->data['additional_body'] = '<script src="' . base_url() . 'assets/admin-page/plugins/bootstrap-select/js/bootstrap-select.js"></script>';
+				$this->data['additional_head'] = '<link href="' . base_url() . 'assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
+				$this->data['additional_body'] = '<script src="' . base_url() . 'assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>';
                 $this->data['content'] = 'backend/modul-admin/tipe/tipe_edit';
                 $this->template->_render_page('layout/adminPanel', $this->data);
             } else {

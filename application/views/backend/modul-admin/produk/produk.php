@@ -15,7 +15,6 @@
                                     <th>Kode</th>
                                     <th>Nama</th>
                                     <th>Kategori</th>
-                                    <!-- <th>Tipe</th> -->
                                     <th>Stok</th>
                                     <th style="width: 75px;">Aksi</th>
                                 </tr>
@@ -24,7 +23,7 @@
                                 <?php $id=1; foreach($produk as $data):?>
                                     <tr>
                                         <td><?php echo $id++; ?></td>
-                                        <td class="col-xs-6 col-md-2" style="vertical-align: middle;">
+                                        <td class="col-xs-6 col-md-2">
                                             <div>
                                                 <?php if (!$data->foto) { ?>
                                                     <a href="<?php echo site_url('assets/admin-page/images/500x300.png'); ?>" class="thumbnail">
@@ -40,7 +39,6 @@
                                         <td><?php echo $data->kode_produk; ?></td>
                                         <td><?php echo $data->nama_produk; ?></td>
                                         <td><?php echo Kategori($data->id_kategori, 'nama_kategori'); ?></td>
-                                        <!-- <td><?php echo namaTipe($data->id_tipe); ?></td> -->
                                         <td><?php echo $data->stok; ?></td>
                                         <td>
                                             <div class="d-flex justify-content-center">

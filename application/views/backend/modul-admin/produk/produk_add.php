@@ -1,15 +1,25 @@
 <section class="content">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Tambah Produk</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?php echo base_url('produk/') ?>">Produk</a></li>
+                        <li class="breadcrumb-item active">Tambah Produk</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="container-fluid">
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="header">
-                        <h2>
-                            Tambah Produk
-                        </h2>
-                    </div>
                     <div class="body">
-                        <?php echo form_open_multipart('produk/add_produk', 'class="form-horizontal"') ?>
+                        <?php echo form_open_multipart('produk/add_produk', 'class="form-horizontal p-4"') ?>
                         <div class="row clearfix">
                             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                 <label for="nama_produk">Nama Produk</label>
@@ -34,24 +44,7 @@
                                         $options[] = 'Pilih Kategori';
                                         $options[$val->id_kategori] = $val->nama_kategori;
                                     }
-                                    echo form_dropdown($id_kategori, $options, $id_kategori['value']);
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                <label for="id_tipe">Tipe</label>
-                            </div>
-                            <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                <div class="form-group">
-                                    <?php
-                                    $options = array();
-                                    foreach ($tipe as $val) {
-                                        $options[] = 'Pilih Tipe';
-                                        $options[$val->id_tipe] = $val->nama_tipe;
-                                    }
-                                    echo form_dropdown($id_tipe, $options, $id_tipe['value']);
+                                    echo form_dropdown($id_kategori, $options, $id_kategori['value'], 'class="form-control select2"');
                                     ?>
                                 </div>
                             </div>
@@ -100,7 +93,7 @@
                                 <div class="form-group">
                                     <div class="form-line">
                                         <?php echo
-                                            form_textarea($deskripsi, '', 'id="ckeditor"');
+                                            form_textarea($deskripsi, '', 'class="form-control" id="ckeditor"');
                                         ?>
                                     </div>
                                 </div>
