@@ -17,7 +17,7 @@
     <?php $this->load->view('components/admin/sidebar'); ?>
 
         <div class="wrapper">
-            <div class="content-wrapper py-3 px-2">
+            <div class="content-wrapper py-3">
             <?php
                 if (isset($content) && $content) {
                     $this->load->view($content);

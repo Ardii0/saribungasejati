@@ -1,11 +1,20 @@
 <section class="content">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="ml-2">
+                    <h1>Laporan Pembayaran Telah Dikonfirmasi</h1>
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="container-fluid">
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
+                <div class="card p-3">
                     <div class="body">
-                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                            <thead class="bg-blue">
+                        <table class="table table-bordered table-striped table-hover" id="data">
+                            <thead>
                                 <tr>
                                     <th style="width: 2%;">No</th>
                                     <th>Nama User</th>
@@ -31,7 +40,7 @@
                                         <td><?php echo $data->waktu_konfirmasi; ?></td>
                                         <td>
                                             <div class="d-flex justify-content-center">
-                                                <?php echo anchor('produk/pembayaran_detail/'.$data->id_pembayaran, '<i class="material-icons">visibility</i>', 'class="btn btn-warning btn-circle waves-effect waves-circle waves-float"'); ?>
+                                                <?php echo anchor('produk/pembayaran_detail/'.$data->id_pembayaran, '<i class="fa fa-eye"></i>', 'class="btn btn-warning btn-circle waves-effect waves-circle waves-float"'); ?>
                                             </div>
                                         </td>
                                     </tr>

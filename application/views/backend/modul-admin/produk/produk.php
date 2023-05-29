@@ -1,14 +1,29 @@
 <section class="content">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Produk</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                            <a href="<?php echo base_url('produk/add_produk'); ?>">
+                                <button type="button" class="btn btn-success">
+                                    <i class="fa fa-plus pr-2"></i>Tambah
+                                </button>
+                            </a>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="container-fluid">
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <?php echo anchor('produk/add_produk', '<i class="material-icons">add</i><span>Tambah Produk</span>', 'class="btn btn-primary waves-effect"') ?>
-                    </div>
+                <div class="card p-3">
                     <div class="body">
-                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                            <thead class="bg-blue">
+                        <table class="table table-bordered table-striped table-hover" id="data">
+                            <thead>
                                 <tr>
                                     <th style="width: 2%;">No</th>
                                     <th>Foto</th>
@@ -42,8 +57,8 @@
                                         <td><?php echo $data->stok; ?></td>
                                         <td>
                                             <div class="d-flex justify-content-center">
-                                                <?php echo anchor('produk/produk_edit/'.$data->id_produk, '<i class="material-icons">edit</i>', 'class="btn btn-warning btn-circle waves-effect waves-circle waves-float"'); ?>
-                                                <?php echo anchor('produk/produk_delete/'.$data->id_produk, '<i class="material-icons">delete</i>', 'class="btn btn-danger btn-circle waves-effect waves-circle waves-float"'); ?>
+                                                <?php echo anchor('produk/produk_edit/'.$data->id_produk, '<i class="fa fa-edit"></i>', 'class="btn btn-warning btn-sm btn-circle waves-effect waves-circle waves-float mr-1"'); ?>
+                                                <?php echo anchor('produk/produk_delete/'.$data->id_produk, '<i class="fa fa-trash"></i>', 'class="btn btn-danger btn-sm btn-circle waves-effect waves-circle waves-float"'); ?>
                                             </div>
                                         </td>
                                     </tr>

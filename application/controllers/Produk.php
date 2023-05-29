@@ -70,16 +70,12 @@ class Produk extends CI_Controller
                 'name'  => 'deskripsi',
                 'value' => $this->form_validation->set_value('deskripsi'),
             );
-            $this->data['additional_head'] = '<link href="' . base_url() . 'assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
-            $this->data['additional_body'] = '<script src="' . base_url() . 'assets/plugins/bootstrap-select/js/bootstrap-select.js"></script><script src="' . base_url() . 'assets/plugins/ckeditor/ckeditor.js"></script>
-            <script src="'.base_url().'assets/js/pages/forms/editors.js"></script>';
             $this->data['content'] = 'backend/modul-admin/produk/produk_add';
             $this->template->_render_page('layout/adminPanel', $this->data);
         } else {
             $kode_produk = 'PDK-'.$this->randomize(7);
             $nama_produk = $this->input->post('nama_produk', true);
             $id_kategori = $this->input->post('id_kategori', true);
-            $id_tipe = $this->input->post('id_tipe', true);
             $harga = $this->input->post('harga', true);
             $stok = $this->input->post('stok', true);
             $deskripsi = $this->input->post('deskripsi', true);
@@ -87,7 +83,6 @@ class Produk extends CI_Controller
                 'kode_produk'   	=> $kode_produk,
                 'nama_produk'   	=> $nama_produk,
                 'id_kategori'     	=> $id_kategori,
-                'id_tipe'         	=> $id_tipe,
                 'harga'         	=> $harga,
                 'stok'         		=> $stok,
                 'deskripsi'         => $deskripsi,
@@ -132,7 +127,6 @@ class Produk extends CI_Controller
         $row = $this->Main_model->where_data($where, 'produk')->row_array();
         if (isset($row['id_produk'])) {
 			$this->data['kategori'] = $this->Main_model->get_data('kategori')->result();
-			$this->data['tipe'] = $this->Main_model->get_data('tipe')->result();
 
             $this->form_validation->set_rules('nama_produk', 'Nama Produk', 'trim|required');
             $this->form_validation->set_rules('id_kategori', 'id_kategori', 'trim|required');
@@ -151,12 +145,6 @@ class Produk extends CI_Controller
                     'name'  => 'id_kategori',
                     'type'  => 'text',
                     'value' => $this->form_validation->set_value('id_kategori', $row['id_kategori']),
-                );
-                $this->data['id_tipe'] = array(
-                    'id'    => 'id_tipe',
-                    'name'  => 'id_tipe',
-                    'type'  => 'text',
-                    'value' => $this->form_validation->set_value('id_tipe', $row['id_tipe']),
                 );
                 $this->data['harga'] = array(
                     'id'    => 'harga',
@@ -186,23 +174,17 @@ class Produk extends CI_Controller
                     'type'  => 'file',
                     'value' => $this->form_validation->set_value('id_produk', $row['id_produk']),
                 );
-				$this->data['additional_head'] = '<link href="' . base_url() . 'assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />';
-				$this->data['additional_body'] = '<script src="' . base_url() . 'assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>
-                <script src="' . base_url() . 'assets/plugins/ckeditor/ckeditor.js"></script>
-                <script src="' . base_url() . 'assets/js/pages/forms/editors.js"></script>';
                 $this->data['content'] = 'backend/modul-admin/produk/produk_edit';
                 $this->template->_render_page('layout/adminPanel', $this->data);
             } else {
 				$nama_produk = $this->input->post('nama_produk', true);
 				$id_kategori = $this->input->post('id_kategori', true);
-				$id_tipe = $this->input->post('id_tipe', true);
 				$harga = $this->input->post('harga', true);
 				$stok = $this->input->post('stok', true);
 				$deskripsi = $this->input->post('deskripsi', true);
 				$data = [
 					'nama_produk'   	=> $nama_produk,
 					'id_kategori'     	=> $id_kategori,
-					'id_tipe'         	=> $id_tipe,
 					'harga'         	=> $harga,
 					'stok'         		=> $stok,
 					'deskripsi'         => $deskripsi,

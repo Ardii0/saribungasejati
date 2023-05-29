@@ -1,15 +1,25 @@
 <section class="content">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Tambah Kategori</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="<?php echo base_url('produk/kategori') ?>">Kategori</a></li>
+                        <li class="breadcrumb-item active">Tambah Kategori</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
     <div class="container-fluid">
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="header">
-                        <h2>
-                            Tambah Kategori
-                        </h2>
-                    </div>
                     <div class="body">
-                        <?php echo form_open_multipart('produk/kategori_add', 'class="form-horizontal"') ?>
+                        <?php echo form_open_multipart('produk/kategori_add', 'class="form-horizontal p-4"') ?>
                         <div class="row clearfix">
                             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                 <label for="nama_kategori">Nama Kategori</label>
