@@ -126,16 +126,12 @@ CREATE TABLE `produk` (
   `foto` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_produk`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `produk` */
 
 insert  into `produk`(`id_produk`,`kode_produk`,`nama_produk`,`id_kategori`,`harga`,`stok`,`deskripsi`,`foto`,`created_at`) values 
-(1,'PDK-LWBISRV','Madu Asli',1,50000,2,NULL,NULL,'2023-05-25 23:20:26'),
-(2,'PDK-LWBISRV','Madu Asli',1,50000,2,NULL,NULL,'2023-05-25 23:20:26'),
-(3,'PDK-LWBISRV','Madu Asli',1,50000,2,NULL,NULL,'2023-05-25 23:20:26'),
-(4,'PDK-LWBISRV','Madu Asli',1,50000,2,NULL,NULL,'2023-05-25 23:20:26'),
-(5,'PDK-LWBISRV','Madu Asli',1,50000,0,NULL,NULL,'2023-05-25 23:20:26');
+(1,'PDK-LWBISRV','Madu Asli',1,50000,2,NULL,NULL,'2023-05-25 23:20:26');
 
 /*Table structure for table `users` */
 

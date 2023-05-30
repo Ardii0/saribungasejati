@@ -160,7 +160,6 @@ class Profile extends CI_Controller
 		$where = array('id_user' => $this->session->userdata('id_user'));
 		$this->data['history'] = $this->Main_model->where_data($where, 'pembayaran')->result();
 
-		$this->data['additional_head'] = '<link rel="stylesheet" href="'.base_url().'assets/landing-page/css/detail_produk.css" />';
 		$this->data['content'] = 'interface/history_pembayaran/index';
 		$this->template->_render_page('layout/landingpagePanel', $this->data);
 	}

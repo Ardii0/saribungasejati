@@ -70,7 +70,7 @@
                     </ul>
                 </li>
                 <li class="nav-item logout">
-                    <a href="<?php echo base_url('Login/logout');?>" class="nav-link">
+                    <a href="<?php echo base_url('auth/logout');?>" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p class="text">Keluar</p>
                     </a>

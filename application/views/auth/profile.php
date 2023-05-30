@@ -3,7 +3,7 @@
         <div class="flex justify-end mdmax:justify-center">
             <?php echo form_open_multipart('profile/upload_foto', ' id="upload" class="h-80 w-72 border-2 p-4"') ?>
                 <?php if (!$user['foto']) { ?>
-                    <img src="<?php echo site_url('assets/admin-page/images/500x300.png'); ?>" class="max-w-64 max-h-64 m-auto rounded-full" alt="ProfilePicture">
+                    <img src="<?php echo site_url('assets/no_image.png'); ?>" class="max-w-64 max-h-64 m-auto rounded-full" alt="ProfilePicture">
                 <?php } else { ?>
                     <img src="<?php echo site_url('uploads/foto-profil/'.$user['foto']);?>" class="max-w-64 max-h-64 m-auto rounded-full" alt="ProfilePicture">
                 <?php } ?>

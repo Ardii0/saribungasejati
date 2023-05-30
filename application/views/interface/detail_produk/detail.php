@@ -2,7 +2,7 @@
     <div class="grid grid-cols-3 mdmax:grid-cols-1">
         <div class="mdmax:flex mdmax:justify-center">
             <?php if (!$foto['value']) { ?>
-                <img src="https://media.tenor.com/BxOP1n9xgdIAAAAC/bocchi-bocchi-the-rock.gif" class="max-h-full max-w-full h-80 w-80 rounded-lg">
+                <img src="<?php echo site_url('assets/no_image.png'); ?>" class="max-h-full max-w-full h-80 w-80 rounded-lg border border-orange-400">
             <?php } else { ?>
                 <img src="<?php echo site_url('uploads/foto-produk/'.$foto['value']); ?>" class="max-h-full max-w-full h-80 w-80 rounded-lg">
             <?php } ?>
@@ -70,7 +70,7 @@
             <input type="hidden" id="stok" value="<?php echo $produk['stok']; ?>">
             <?php echo form_input($id_produk, $produk['id_produk'], ' style="display: none;"'); ?>
         <?php echo form_close(); ?>
-    </div>   
+    </div>
 </div>
 <!-- <section class="content">
     <div class="landpage container-fluid">
