@@ -4,17 +4,17 @@
         <div class="grid grid-cols-4 mdmax:grid-cols-3 gap-2 gap-y-4">
             <?php foreach($produk as $data) :?>
                 <a href="<?php echo base_url('belanja/detail/'.$data->id_produk)?>" class="block group">
-                    <?php if(!empty($data->foto)) { ?>
+                    <?php if(empty($data->foto)) { ?>
                         <img
-                            src="https://images.unsplash.com/photo-1592921870789-04563d55041c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                            src="<?php echo base_url('assets/no_image.png')?>"
                             alt=""
                             class="object-cover w-full rounded aspect-square h-52"
                         />
                     <?php } else { ?>
                         <img
-                            src="<?php echo base_url('assets/no_image.png')?>"
+                            src="<?php echo base_url('uploads/foto-produk/'.$data->foto)?>"
                             alt=""
-                            class="object-cover w-full rounded aspect-square h-52"
+                            class="object-fit w-full rounded aspect-square h-52"
                         />
                     <?php } ?>
 

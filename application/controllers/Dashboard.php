@@ -8,7 +8,7 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         $this->load->database();
-        $this->load->helper(['url', 'form', 'html', 'slug', 'indonesian_date', 'text']);
+        $this->load->helper(['url', 'form', 'html', 'slug', 'indonesian_date', 'text', 'main_helper']);
         $this->load->library(['template', 'session', 'form_validation']);
         $this->load->model('Main_model');
 
@@ -17,8 +17,11 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
+        $this->data['user'] = $this->Main_model->where_data(array('role' => 'User'), 'users')->num_rows();
+        $this->data['totalpday'] = $this->Main_model->total(date('Y-m-d'))->result();
+        $this->data['totalpmth'] = $this->Main_model->totalmonth(date('Y-m-d'))->result();
+        
         $this->data['title'] = 'Dashboard';
-
         $this->data['content'] = 'backend/modul-dashboard/dashboard';
         $this->template->_render_page('layout/adminPanel', $this->data);
     }

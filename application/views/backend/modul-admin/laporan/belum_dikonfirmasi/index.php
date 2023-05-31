@@ -38,7 +38,7 @@
                                         <td><?php echo IDR($data->subtotal); ?></td>
                                         <td>
                                             <div class="d-flex justify-content-center">
-                                                <?php echo anchor('produk/pembayaran_detail/'.$data->id_pembayaran, '<i class="fa fa-eye"></i>', 'class="btn btn-warning btn-circle waves-effect waves-circle waves-float"'); ?>
+                                                <?php echo anchor('produk/pembayaran_detail/'.$data->id_pembayaran, '<i class="fa fa-eye"></i>', 'class="btn btn-warning btn-circle waves-effect waves-circle waves-float mr-1"'); ?>
                                                 <?php echo anchor('produk/konfirmasi/'.$data->id_pembayaran, '<i class="fas fa-check"></i>', 'class="btn btn-danger btn-circle waves-effect waves-circle waves-float"'); ?>
                                             </div>
                                         </td>

@@ -5,24 +5,49 @@
         </div>
         <div class="row clearfix">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="info-box bg-pink hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">people</i>
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <p>Jumlah Pengguna</p>
+                        <h3><?php echo $user;?></h3>
                     </div>
-                    <div class="content">
-                        <div class="text">TOTAL PENGGUNA</div>
-                        <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"><?php echo ''; ?></div>
+                    <div class="icon">
+                        <i class="fas fa-users"></i>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <div class="info-box bg-light-green hover-expand-effect">
-                    <div class="icon">
-                        <i class="material-icons">forum</i>
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <p>Jumlah Penjualan Hari ini</p>
+                        <?php foreach ($totalpday as $pday) { ?>
+                            <h3><?php if($pday->subtotal == 0) {
+                                echo "Rp. -";
+                            } else {
+                                echo IDR($pday->subtotal);
+                            }
+                            ?></h3>
+                        <?php } ?>
                     </div>
-                    <div class="content">
-                        <div class="text">PENJUALAN BULAN INI</div>
-                        <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"><?php echo ''; ?></div>
+                    <div class="icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <p>Jumlah Penjualan Bulan ini</p>
+                        <?php foreach ($totalpmth as $pmth) { ?>
+                            <h3><?php if($pmth->subtotal == 0) {
+                                echo "Rp. -";
+                            } else {
+                                echo IDR($pmth->subtotal);
+                            }
+                            ?></h3>
+                        <?php } ?>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-users"></i>
                     </div>
                 </div>
             </div>

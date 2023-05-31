@@ -18,10 +18,6 @@
 <script src="<?php echo base_url("assets/plugins/jquery/jquery.min.js"); ?>"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo base_url("assets/plugins/jquery-ui/jquery-ui.min.js"); ?>"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-$.widget.bridge('uibutton', $.ui.button)
-</script>
 <!-- Bootstrap 4 -->
 <script src="<?php echo base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 <!-- overlayScrollbars -->
@@ -45,25 +41,6 @@ $(function () {
     CKEDITOR.replace('ckeditor');
     CKEDITOR.config.height = 300;
 
-    //TinyMCE
-    tinymce.init({
-        selector: "textarea#tinymce",
-        theme: "modern",
-        height: 300,
-        plugins: [
-            'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-            'searchreplace wordcount visualblocks visualchars code fullscreen',
-            'insertdatetime media nonbreaking save table contextmenu directionality',
-            'emoticons template paste textcolor colorpicker textpattern imagetools'
-        ],
-        toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-        toolbar2: 'print preview media | forecolor backcolor emoticons',
-        image_advtab: true
-    });
-    tinymce.suffix = ".min";
-    tinyMCE.baseURL = '../../plugins/tinymce';
-});
-$(function() {
     //Initialize Select2 Elements
     $('.select2').select2()
 
@@ -71,6 +48,6 @@ $(function() {
         "responsive": true,
         "lengthChange": true,
         "autoWidth": false,
-    }).buttons().container().appendTo('#data_wrapper .col-md-6:eq(0)');
+    });
 });
 </script>

@@ -100,6 +100,8 @@
                             </div>
                         </div>
                         <div class="row clearfix">
+                            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5">
+                            </div>
                             <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
                                 <?php echo form_submit('simpan-produk', 'Simpan', 'class="btn btn-primary m-t-15 waves-effect"') ?>
                             </div>
@@ -111,3 +113,4 @@
         </div>
     </div>
 </section>
+<?php $this->load->view('components/link')?>

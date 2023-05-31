@@ -6,8 +6,6 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/plugins/select2/css/select2.min.css'); ?>">
 <!-- Theme style -->
 <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/adminlte.min.css'); ?>">
-<!-- jQuery -->
-<script src="<?php echo base_url("assets/plugins/jquery/jquery.min.js"); ?>"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo base_url("assets/plugins/jquery-ui/jquery-ui.min.js"); ?>"></script>
 <!-- Select2 -->
@@ -23,6 +21,6 @@ $(function() {
         "responsive": true,
         "lengthChange": true,
         "autoWidth": false,
-    }).buttons().container().appendTo('#data_wrapper .col-md-6:eq(0)');
+    });
 });
 </script>

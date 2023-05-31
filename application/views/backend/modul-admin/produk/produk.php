@@ -41,8 +41,8 @@
                                         <td class="col-xs-6 col-md-2">
                                             <div>
                                                 <?php if (!$data->foto) { ?>
-                                                    <a href="<?php echo site_url('assets/admin-page/images/500x300.png'); ?>" class="thumbnail">
-                                                        <img src="<?php echo site_url('assets/admin-page/images/500x300.png'); ?>" class="img-responsive" style="max-width: 125px; max-height: 125px;">
+                                                    <a href="<?php echo site_url('assets/no_image.png'); ?>" class="thumbnail">
+                                                        <img src="<?php echo site_url('assets/no_image.png'); ?>" class="img-responsive" style="max-width: 125px; max-height: 125px;">
                                                     </a>
                                                 <?php } else { ?>
                                                     <a href="<?php echo site_url('uploads/foto-produk/' . $data->foto); ?>" class="thumbnail">

@@ -23,7 +23,7 @@
                 <div class="card p-3">
                     <div class="body">
                         <table class="table table-bordered table-striped table-hover" id="data">
-                            <thead class="bg-blue">
+                            <thead>
                                 <tr>
                                     <th style="width: 2%;">No</th>
                                     <th>Nama</th>

@@ -2,14 +2,18 @@
     <div class="container-fluid">
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="alert <?php if($detail['status'] == 'Belum Dikonfirmasi') { echo 'alert-info'; } else { echo 'alert-success'; }; ?>" style="margin: 0 0 50px 0;">
+                <div class="alert <?php if($detail['status'] == 'Belum Dikonfirmasi') { echo 'alert-info'; } else { echo 'alert-success'; }; ?>" style="margin: 0 0 10px 0;">
                     Status Pembayaran: <?php echo $detail['status']; ?>
                 </div>
-                <div class="card">
-                    <div class="body" style="margin: -20px 0 0 0;">
+                <div class="card p-3">
+                    <div class="body">
                         <div class="" style="display: flex; justify-content:space-between; position: relative;">
                             <div style="display: flex;">
+                            <?php if(empty(Produk($detail['id_produk'], 'foto'))) {?>
+                                <img src="<?php echo site_url('assets/no_image.png'); ?>" class="img-responsive fotoproduk_bayar" style="margin: 0 20px 0 0;">
+                            <?php } else { ?>
                                 <img src="<?php echo site_url('uploads/foto-produk/'.Produk($detail['id_produk'], 'foto')); ?>" class="img-responsive fotoproduk_bayar" style="margin: 0 20px 0 0;">
+                            <?php } ?>
                                 <div class="text-right ml-2">
                                     <span style="font-size: 28px;">
                                         <?php echo Produk($detail['id_produk'], 'nama_produk'); ?>
@@ -37,8 +41,8 @@
                                         <tr class="bg-teal">
                                             <th colspan="4">
                                                 <div style="display: flex; justify-align: center;">
-                                                    <i class="material-icons">location_on</i>
-                                                    <p style="margin: 5px 0 0 0;"> Alamat Pengiriman</p>
+                                                    <i class="fas fa-map-marker-alt" style="display: flex; align-items: center;"></i>
+                                                    <p style="margin: 0 0 0 5px;"> Alamat Pengiriman</p>
                                                 </div>
                                             </th>
                                         </tr>
@@ -79,7 +83,7 @@
                                         <?php }?>
                                     </tbody>
                                 </table>
-                                <?php echo anchor($_SERVER['HTTP_REFERER'], '<i class="material-icons">keyboard_backspace</i><span>Kembali</span>', 'class="btn btn-primary waves-effect"'); ?>
+                                <?php echo anchor('produk/pembayaran_notconf', '<span>Kembali</span>', 'class="btn btn-primary waves-effect"'); ?>
                             </div>
                         </div>
                     </div>
@@ -88,3 +92,4 @@
         </div>
     </div>
 </section>
+<link rel="stylesheet" href="<?php echo base_url('assets/dist/css/detail_produk.css')?>">

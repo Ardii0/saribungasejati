@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="index3.html" class="brand-link">
-        <span class="brand-text font-weight-light">SISTEM INFORMASI SEKOLAH</span>
+        <span class="brand-text font-weight-light"><?php echo $_app_name?></span>
     </a>
     <div class="form-inline p-2">
         <div class="input-group" data-widget="sidebar-search">

@@ -126,4 +126,21 @@ class Main_model extends CI_Model
 
         return $query->row()->harga;
     }
+    
+	public function total($date)
+	{
+		$this->db->select('SUM(subtotal) as subtotal');
+		$this->db->from('pembayaran');
+		$this->db->where('pembayaran.date', $date);
+		$db = $this->db->get();
+		return $db;
+	}
+
+	public function totalmonth($date)
+	{
+        $query = $this->db->query("SELECT SUM(subtotal) as subtotal FROM `pembayaran` 
+        GROUP BY DATE_FORMAT('%Y-%m', $date)");
+        
+		return $query;
+	}
 }
