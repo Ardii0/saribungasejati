@@ -29,7 +29,7 @@
                         <?php } ?>
                     </div>
                     <div class="icon">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                         <?php } ?>
                     </div>
                     <div class="icon">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-chart-bar"></i>
                     </div>
                 </div>
             </div>

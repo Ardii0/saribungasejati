@@ -27,14 +27,17 @@ class Search extends CI_Controller
 		$this->template->_render_page('layout/landingpagePanel', $this->data);
 	}
 
-	public function byname()
-	{
-        $nama_produk = $this->input->post('nama_produk');
-        $this->data['hasil'] = $this->input->post('nama_produk');
+	public function insert() {
+		$search = str_replace(' ','_',$this->input->post('nama_produk'));
+		redirect('search/result/'.$search);
+	}
 
-		$query = $this->db->query("SELECT * from produk where nama_produk like '%$nama_produk%' ORDER BY created_at ASC")->result();
+	public function result($nama_produk)
+	{
+        $this->data['hasil'] = str_replace('_',' ',$nama_produk);
+
+		$query = $this->db->query("SELECT * from produk as p INNER JOIN kategori as k ON p.id_kategori=k.id_kategori where p.nama_produk like '%$nama_produk%' or k.nama_kategori like '%$nama_produk%' ORDER BY p.created_at ASC")->result();
 		$this->data['search'] = $query;
-		$this->data['produk'] = $this->Main_model->get_data('produk')->result();
 		$this->data['kontak'] = $this->Main_model->get_data('kontak')->row_array();
 		
 		$this->data['title'] = 'Search';
